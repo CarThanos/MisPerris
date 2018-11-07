@@ -1,0 +1,224 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Formulario</title>
+    <meta charset="utf-8">
+	<link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<meta https-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+ 
+<body>
+    <div id="registrar">
+            <a href="post_list.html">Regresar</a>
+    </div>
+    <div id="envoltura">
+        <div id="contenedor">
+ 
+            <div id="cabecera">
+			   <img src="static/img/logo.png" alt="Logo">
+			  
+               
+            </div>
+ 
+            <div id="cuerpo">
+ 
+                <form id="form-login" action="#" method="post" >
+                    <p><label for="nombre">Nombre:</label></p>
+                        <input name="nombre" type="text" id="nombre" class="nombre" placeholder="Ingresa tu nombre" autofocus="" onkeypress="return validar(event)" required />
+ 
+                    
+                    <p><label for="apellidos">Apellidos:</label></p>
+                        <input name="apellidos" type="text" id="apellidos" class="apellidos" placeholder="Ingresa tus apellidos" onkeypress="return validar(event)" required />
+					
+					<p><label for="telefono">Telefono:</label></p>	
+					<input type="text" maxlength="9" class="telefono" placeholder="Ingresa tu Telefono" onkeypress="return valida(event)"  required>
+                    
+                    <p><label for="correo">Correo:</label></p>
+                        <input name="correo" type="email" id="correo" class="correo" placeholder="Ingresa tu mail" required />
+						
+					<p><label for="run">Run:</label></p>
+					    <input name="run" maxlength="10" type="text" id="run" class="run" placeholder="Ingresa tu Run" oninput="checkRut(this)" required />
+						
+					<p><label for="fec_nac">Fecha de Nacimiento:</label></p>
+					    <input name="fec_nac" type="date" id="fec_nac" class="fec_nac" max="01-01-2001" required  />
+
+ 				    <p><label for="region">Región y Ciudad:</label></p>
+					   <select name="OS" >
+						   
+							<optgroup label="Región de Arica y Parinacota"> 
+							   <option value="1">Arica</option> 
+							   
+						   </optgroup> 
+						    <optgroup label="Región de Tarapacá"> 
+							   <option value="10">Iquique</option> 
+							   <option value="11">Alto Hospicio</option> 
+							   <option value="12">Pozo Almonte</option> 
+						   </optgroup>
+							<optgroup label="Región de Antofagasta"> 
+								<option value="10">Antofagasta</option> 
+								<option value="11">Calama</option> 
+								<option value="12">Tocopilla</option>
+								<option value="12">Taltal</option>
+								<option value="12">Mejillones</option>
+								<option value="12">María Elena</option>
+							</optgroup> 
+							<optgroup label="Región de Atacama"> 
+								<option value="10">Copiapó</option> 
+								<option value="11">Caldera</option> 
+								<option value="12">Tierra Amarilla</option>
+								<option value="12">Chañaral</option>
+								<option value="12">Diego de Almagro</option>
+								<option value="12">El Salvador</option>
+								<option value="12">Vallenar</option>
+								<option value="12">Huasco</option>								
+							</optgroup> 
+							<optgroup label="Región de Coquimbo"> 
+								<option value="10">La Serena</option> 
+								<option value="11">Coquimbo</option> 
+								<option value="12">Punitaqui</option>
+								<option value="12">Andacollo</option>
+								<option value="12">Vicuña</option>
+								<option value="12">Illapel</option>
+								<option value="12">Los Vilos</option>
+								<option value="12">Salamanca</option>
+								<option value="12">Ovalle</option>
+								<option value="12">Combarbalá</option>
+								<option value="12">Monte Patria</option>
+								<option value="12">El Palqui</option> 
+							</optgroup> 
+							<optgroup label="Región Metropolitana"> 
+							    <option value="10">Santiago</option> 
+								<option value="11">Cerrillos</option> 
+								<option value="12">San Bernardo</option>
+								<option value="12">Lo Espejo</option>
+								<option value="12">Puente Alto</option>
+								<option value="12">Pirque</option>
+								<option value="12">Talagante</option> 
+							</optgroup> 						   
+						</select>
+
+                    <p><label for="Tipo_Vivienda">Tipo de Vivienda:</label></p>
+					    <select name="Tipo_Vivienda">
+
+							<option>Casa con patio grande</option>
+
+							<option>Casa con patio pequeño</option>
+
+							<option>Casa sin patio</option>
+							
+							<option>Departamento</option>
+
+							</select>					
+												
+ 
+                    <p id="bot"><input  name="submit" type="submit" id="boton" value="Registrar" class="boton" /></p>
+                </form>
+            </div>
+ 
+            <div id="pie"></div>
+        </div>
+ 
+    </div>
+	
+	<script>
+		function valida(e){
+			tecla = (document.all) ? e.keyCode : e.which;
+
+
+			if (tecla==8){
+				return true;
+			}
+				
+
+			patron =/[0-9]/;
+			tecla_final = String.fromCharCode(tecla);
+			return patron.test(tecla_final);
+		}
+    </script>
+	<script>
+		function checkRut(rut) {
+
+		var valor = rut.value.replace('.','');
+	
+		valor = valor.replace('-','');
+		
+	
+		cuerpo = valor.slice(0,-1);
+		dv = valor.slice(-1).toUpperCase();
+		
+
+		rut.value = cuerpo + '-'+ dv
+		
+
+		if(cuerpo.length < 7) { rut.setCustomValidity("RUT Incompleto"); return false;}
+		
+
+		suma = 0;
+		multiplo = 2;
+		
+
+		for(i=1;i<=cuerpo.length;i++) {
+		
+
+			index = multiplo * valor.charAt(cuerpo.length - i);
+			
+
+			suma = suma + index;
+			
+			if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+	  
+		}
+		
+
+		dvEsperado = 11 - (suma % 11);
+		
+	
+		dv = (dv == 'K')?10:dv;
+		dv = (dv == 0)?11:dv;
+		
+		
+		if(dvEsperado != dv) { rut.setCustomValidity("RUT Inválido"); return false; }
+		
+	
+		rut.setCustomValidity('');
+	}
+</script>
+<script type="text/javascript">
+
+function validar(e) { 
+
+tecla = (document.all) ? e.keyCode : e.which; 
+
+if (tecla==8) return true; 
+
+patron =/[A-Za-z\s]/; 
+
+te = String.fromCharCode(tecla); 
+
+return patron.test(te); 
+
+}
+
+</script>
+
+<script type="text/javascript">
+
+function numeros(nu) { 
+
+tecla = (document.all) ? e.keyCode : e.which; 
+if (tecla==8) return true; 
+
+ppatron = /\d/; 
+
+te = String.fromCharCode(tecla); 
+
+return patron.test(te); 
+
+}
+
+</script>
+</body>
+ 
+</html>

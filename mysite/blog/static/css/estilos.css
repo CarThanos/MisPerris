@@ -1,0 +1,125 @@
+/*estios.css*/
+	ul {
+	    align: center;
+	    list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #89DABB;
+	}
+
+	li {
+		float: right;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover:not(.active) {
+		background-color: #6FD2AE;
+	}
+
+   #logo {
+	    float:left;
+		background-color:#89DABB;
+	}
+	
+	#centro{
+		float:center-right;
+		background-color:#6FD2AE;
+	}
+	
+	#iz{
+		float:left;
+		background-color:#6FD2AE;
+		height:650;
+		width:1500;
+	}
+	
+	#der{
+		float:right;
+		background-color:#6FD2AE;
+		height:650;
+		width:1500;
+	}
+	
+	
+	
+	#pie{
+		align:center;
+		list-style-type:none;
+		overflow:hode;
+		text-align:center;
+		float:left;
+		background-color:#6FD2AE;
+		color:white;
+		width:100%;
+	}
+	
+	#contacto{
+		float:left;
+		color:white;
+	}
+	
+	#mensaje{
+		float:center;
+		color:white;
+	}
+	
+    #iconos{
+		color:white;
+		float:right;
+		align:center;
+		list-style-type:none;
+		overflow:hode;
+		text-align:center;
+	}
+	
+	#rescate{
+		float:left;
+	}
+	
+    #crowfunding{
+		float:center-left;
+	}	
+	
+	i {
+		color:white;
+	}
+	
+	h2{
+		color:Black;
+	}
+	
+	h3{
+		color:Black;
+	}
+	
+	h4{
+		color:Black;
+	}
+	
+	#final{
+		background-color:#EDEDED;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
